@@ -28,7 +28,8 @@ function getIntro()
 }
 
 // 🎯 Template Variations (Full Stack)
-function fullStackTemplates($data) {
+function fullStackTemplates($data)
+{
 
     $name = $data['name'];
     $company = $data['company'];
@@ -47,7 +48,8 @@ I have hands-on experience in Node.js, Angular, and building scalable web applic
 I would love to contribute and be part of your team.
 
 Regards,  
-Vibhu Tripathi",
+Vibhu Tripathi,
+7081229558",
 
 
         "Hi {$name},
@@ -61,7 +63,8 @@ With experience in MEAN stack and modern web technologies, I focus on building e
 Would be happy to connect and discuss further.
 
 Regards,  
-Vibhu Tripathi",
+Vibhu Tripathi,
+7081229558",
 
 
         "Hi {$name},
@@ -75,7 +78,8 @@ I am a Full Stack Developer with experience in Node.js, Angular, and backend API
 Looking forward to hearing from you.
 
 Regards,  
-Vibhu Tripathi",
+Vibhu Tripathi,
+7081229558",
 
 
         "Hi {$name},
@@ -89,7 +93,8 @@ I have worked on multiple frontend and backend projects, focusing on performance
 Would love to connect.
 
 Regards,  
-Vibhu Tripathi"
+Vibhu Tripathi,
+7081229558"
     ];
 
     return $templates[array_rand($templates)];
@@ -97,7 +102,8 @@ Vibhu Tripathi"
 
 
 // 🎯 Main Template Controller
-function getEmailTemplate($data, $type = 'fullstack') {
+function getEmailTemplate($data, $type = 'fullstack')
+{
 
     switch ($type) {
         case 'fullstack':

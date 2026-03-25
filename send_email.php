@@ -54,6 +54,12 @@ try {
     // $mail->Body = getEmailTemplate($user, 'fullstack');
     $mail->Body = getEmailTemplate($user, $user['role'] || 'Full-Stack Developer');
 
+    // 📎 Attach resume
+    if (file_exists(__DIR__ . '/assets/Full-Stack_Developer_Vibhu_Tripathi.pdf')) {
+        $mail->addAttachment(__DIR__ . '/assets/Full-Stack_Developer_Vibhu_Tripathi.pdf', 'Full-Stack_Developer_Vibhu_Tripathi.pdf');
+    }
+
+    
     $mail->send();
 
     $stmt = $pdo->prepare("

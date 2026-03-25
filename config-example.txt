@@ -2,8 +2,8 @@
 return [
     'smtp_host' => 'smtp.gmail.com',
     'smtp_port' => 587,
-    'smtp_user' => 'amtri2030@gmail.com',
+    'smtp_user' => 'amtrixxxx@gmail.com',
     'smtp_pass' => '', // not your Gmail password
-    'from_email' => 'amtri2030@gmail.com',
+    'from_email' => 'amtrixxxx@gmail.com',
     'from_name' => 'Vibhu Tripathi'
 ];
