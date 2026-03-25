@@ -1,0 +1,4 @@
+<Files "emails.json">
+    Order allow,deny
+    Deny from all
+</Files>
