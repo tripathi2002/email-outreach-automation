@@ -1,5 +1,9 @@
 <?php
 
+echo "working";
+
+// die("No pending emails dd");
+
 require 'db.php';
 
 $jsonFile = 'emails.json';
@@ -19,10 +23,11 @@ $inserted = 0;
 foreach ($data as $row) {
 
     // Skip if email empty
-    if (empty($row['email'])) continue;
+    if (empty($row['email']))
+        continue;
 
     // Check duplicate
-    $stmt = $pdo->prepare("SELECT id FROM emails WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT id FROM hr_emails WHERE email = ?");
     $stmt->execute([$row['email']]);
 
     if ($stmt->fetch()) {
