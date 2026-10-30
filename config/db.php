@@ -1,18 +1,29 @@
 <?php
+/**
+ * Database connection.
+ * Credentials come from environment variables (DB_HOST, DB_NAME, DB_USER, DB_PASS)
+ * or from config/db.local.php (gitignored; copy from config/db.example.php).
+ */
+$dbConfig = [
+    'host'     => getenv('DB_HOST') ?: 'localhost',
+    'dbname'   => getenv('DB_NAME') ?: '',
+    'username' => getenv('DB_USER') ?: 'root',
+    'password' => getenv('DB_PASS') ?: '',
+];
 
-// $host = "82.25.121.84";
-// $dbname = "u935874385_server";
-// $username = "u935874385_vibhu";
-// $password = "0uw2;RX/";
-
-$host = "localhost";
-$dbname = "vibhu-portfolio-sql";
-$username = "root";
-$password = "";
+$localConfig = __DIR__ . '/db.local.php';
+if (file_exists($localConfig)) {
+    $dbConfig = array_merge($dbConfig, require $localConfig);
+}
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo = new PDO(
+        "mysql:host={$dbConfig['host']};dbname={$dbConfig['dbname']};charset=utf8mb4",
+        $dbConfig['username'],
+        $dbConfig['password']
+    );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("DB Connection failed: " . $e->getMessage());
+    error_log('DB Connection failed: ' . $e->getMessage());
+    die('DB Connection failed.');
 }

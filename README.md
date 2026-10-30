@@ -51,13 +51,8 @@ Upload inside: /public_html/email-system/
 
 ### 2. Configure Database
 
-Update `db.php`:
-
-```php
-$host = "localhost";
-$dbname = "your_db_name";
-$username = "your_db_user";
-$password = "your_db_password";
+Copy `config/db.example.php` to `config/db.local.php` (gitignored) and fill in your credentials,
+or set the environment variables `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`.
 
 ---
 3. Create Tables

@@ -2,3 +2,7 @@
 /data
 config.php
 emails.json
+# Local secrets
+config/db.local.php
+config-old.php
+.env
